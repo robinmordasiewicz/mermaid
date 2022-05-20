@@ -1,11 +1,12 @@
 FROM minlag/mermaid-cli:latest
 
-RUN apk --no-cache add shadow && \
-    usermod -u 1001 node && \
-    groupmod -g 1001 node && \
-    chown -R node:node /home/node && \
-    usermod -u 1000 mermaidcli && \
-    groupmod -g 1000 mermaidcli && \
-    chown -R mermaidcli:mermaidcli /home/mermaidcli
+USER root
+RUN apk --no-cache add shadow
+#RUN    usermod -u 1001 node
+#RUN    groupmod -g 1001 node
+#RUN    chown -R node:node /home/node
+RUN    usermod -u 1000 mermaidcli
+RUN    groupmod -g 1000 mermaidcli
+RUN    chown -R mermaidcli:mermaidcli /home/mermaidcli
 
-#USER mermaidcli
+USER mermaidcli
