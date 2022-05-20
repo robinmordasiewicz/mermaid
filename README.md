@@ -1,1 +1,1 @@
-# marp
+# mermaid-cli

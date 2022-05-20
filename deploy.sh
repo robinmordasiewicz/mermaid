@@ -1,8 +1,8 @@
 #!/bin/bash
 #
 
-echo "deploy mermaidcli container"
+echo "deploy mermaid-cli container"
 
 kubectl apply -f deployment.yaml --namespace r-mordasiewicz
 
-echo "kubectl exec --namespace r-mordasiewicz -it mermaidcli -c mermaidcli -- /bin/bash"
+echo "kubectl exec --namespace r-mordasiewicz -it mermaid-cli -c mermaid-cli -- /bin/bash"
