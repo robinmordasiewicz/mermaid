@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mermaidcli
+  labels:
+    app: mermaidcli
+spec:
+  containers:
+  - image: robinhoodis/mermaidcli:0.2.1
+    command:
+      - "sleep"
+      - "604800"
+    imagePullPolicy: Always
+    name: mermaidcli
+  restartPolicy: Always
