@@ -1,4 +1,4 @@
-FROM minlag/mermaidcli-cli
+FROM minlag/mermaid-cli:latest
 
 RUN apk --no-cache add shadow && \
     usermod -u 1001 node && \
