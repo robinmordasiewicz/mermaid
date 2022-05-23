@@ -10,4 +10,3 @@ RUN    groupmod -g 1000 mermaidcli
 RUN    chown -R mermaidcli:mermaidcli /home/mermaidcli
 
 USER mermaidcli
-RUN npm install -g @mermaid-js/mermaid-cli
