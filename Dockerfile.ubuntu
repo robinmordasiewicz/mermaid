@@ -1,0 +1,53 @@
+FROM ubuntu:latest
+
+ENV TZ="America/Toronto"
+ARG DEBIAN_FRONTEND=noninteractive
+
+ENV CHROME_BIN="/usr/bin/chromium-browser" \
+    PUPPETEER_SKIP_CHROMIUM_DOWNLOAD="false"
+
+RUN apt-get --yes update \
+    && apt-get --yes upgrade \
+    && apt-get -y install apt-utils fontconfig curl sudo wget software-properties-common
+
+RUN curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -
+RUN apt-get -y install nodejs
+
+RUN apt-get -y install fonts-noto-cjk fonts-noto-color-emoji \
+    xfonts-terminus fonts-dejavu fonts-freefont-ttf fonts-font-awesome \
+    fonts-inconsolata fonts-linuxlibertine libappindicator1 fonts-liberation \
+    && fc-cache -f
+
+RUN apt-get install -f
+
+RUN apt-get -y install libasound2 libatk-bridge2.0-0 libatspi2.0-0 libdrm2 libgbm1 libgtk-3-0 libgtk-4-1 libnspr4 libnss3 libxkbcommon0 xdg-utils
+
+#RUN add-apt-repository ppa:system76/pop
+#RUN apt-get -y update && apt-get -y install chromium
+
+#RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+#RUN dpkg -i google-chrome-stable_current_amd64.deb
+#RUN dpkg -i google-chrome*.deb
+
+#RUN apt-key adv --fetch-keys "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xea6e302dc78cc4b087cfc3570ebea9b02842f111" \
+#    && echo 'deb http://ppa.launchpad.net/chromium-team/beta/ubuntu bionic main ' >> /etc/apt/sources.list.d/chromium-team-beta.list \
+#    && apt update
+#RUN export DEBIAN_FRONTEND=noninteractive \
+#    && export DEBCONF_NONINTERACTIVE_SEEN=true \
+#    && apt-get -y install chromium-browser
+
+RUN npm install -g @mermaid-js/mermaid-cli
+
+RUN groupadd -g 1000 ubuntu
+RUN useradd -rm -d /home/ubuntu -s /bin/bash -g 1000 -G sudo -u 1000 ubuntu
+RUN touch /home/ubuntu/.sudo_as_admin_successful
+RUN touch /home/ubuntu/.hushlogin
+RUN chown -R ubuntu:ubuntu /home/ubuntu
+USER ubuntu:ubuntu
+
+WORKDIR /home/ubuntu
+
+ADD puppeteer-config.json  /puppeteer-config.json
+#ENTRYPOINT ["/usr/bin/mmdc", "-p", "/puppeteer-config.json"]
+#CMD [ "--help" ]
+

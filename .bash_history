@@ -19,3 +19,20 @@ exit
 exit
 chromium-browser 
 exit
+xit
+exit
+chromium-browser 
+exit
+google-chrome
+exit
+chromium-browser 
+exit
+mmdc -p /puppeteer-config.json -i intro.mmd -o intro.png -C mermaid.css -c config.json -t neutral
+ls
+exit
+which chromium-browser 
+/usr/bin/chromium-browser
+exit
+chromium-browser 
+exit
+exit
