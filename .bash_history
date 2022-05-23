@@ -17,3 +17,5 @@ ls -al /usr/bin/chromium*
 sudo apt-get install chromium-browser
 exit
 exit
+chromium-browser 
+exit
