@@ -13,7 +13,7 @@ RUN apt-get --yes update \
 RUN curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -
 RUN apt-get -y install nodejs
 
-RUN apt-get -y install fonts-noto-cjk fonts-noto-color-emoji \
+RUN apt-get -y install chromium-browser fonts-noto-cjk fonts-noto-color-emoji \
     xfonts-terminus fonts-dejavu fonts-freefont-ttf fonts-font-awesome \
     fonts-inconsolata fonts-linuxlibertine libappindicator1 fonts-liberation \
     && fc-cache -f
@@ -23,8 +23,8 @@ RUN apt-get install -f
 #RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 #RUN dpkg -i google-chrome*.deb
 
-RUN add-apt-repository ppa:system76/pop
-RUN apt-get -y install chromium-bsu
+#RUN add-apt-repository ppa:system76/pop
+#RUN apt-get -y install chromium-bsu
 
 RUN npm install -g @mermaid-js/mermaid-cli
 

@@ -11,3 +11,9 @@ exit
 exit
 exit
 exit
+which chromium
+ls -al /usr/bin/chromium-browser
+ls -al /usr/bin/chromium*
+sudo apt-get install chromium-browser
+exit
+exit
