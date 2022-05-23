@@ -38,6 +38,6 @@ USER ubuntu:ubuntu
 WORKDIR /home/ubuntu
 
 ADD puppeteer-config.json  /puppeteer-config.json
-ENTRYPOINT ["/usr/bin/mmdc", "-p", "/puppeteer-config.json"]
+#ENTRYPOINT ["/usr/bin/mmdc", "-p", "/puppeteer-config.json"]
 #CMD [ "--help" ]
 
